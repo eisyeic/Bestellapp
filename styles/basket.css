@@ -8,11 +8,30 @@
     width: 300px;
     height: 400px;
     position: sticky;
-    top: 0;
+    top: 20px;
 }
 
 .basket h2 {
 
     text-align: center;
 
+}
+
+.basket-element {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.basket-element img {
+    height: 100px;
+}
+
+.basket-element-none {
+    display: none;
+}
+
+.delivery-container {
+    display: flex;
+    justify-content: center;
 }

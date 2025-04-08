@@ -4,14 +4,10 @@
     padding-left: 50px;
 }
 
-.food-container h2 {
-    padding-left: 50px;
-    color: #ff8000;
+.food-section:hover {
+    background-color:  rgb(255, 230, 204);
 }
 
-.food-section:hover {
-    background-color:  black;
-}
 
 .food-section button {
     width: 40px;
@@ -26,6 +22,11 @@
 
 .foods-none{
     display: none;
+}
+
+.food-container h2 {
+    padding-left: 50px;
+    color: #ff8000;
 }
 
 .placeholder-befor-button-container {

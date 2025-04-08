@@ -20,11 +20,11 @@ function burgerClick() {
     else {
         burgerBox.innerHtml = "";
     }
-}
+};
 
 function getFoodsContainer(foodContainer, index) {
     foodContainer.innerHTML += `
-    <div class="food-section">
+    <div class="food-section" onclick="addFoodAndDrinks(${index})">
         <div>
             <h3>${foods[index].name}</h3>
             <p><i>${foods[index].ingredients}</i></p>
@@ -35,10 +35,11 @@ function getFoodsContainer(foodContainer, index) {
         </div> 
     </div>
     <div class="placeholder"></div>`
-}
+};
+
 function getDrinksContainer(drinkContainer, index) {
     drinkContainer.innerHTML += `
-    <div class="drink-section">
+    <div class="drink-section" onclick="addFoodAndDrinks(${index}>
         <div>
             <h3>${drinks[index].name}</h3>
             <p><i>${drinks[index].size}</i></p>
@@ -49,4 +50,22 @@ function getDrinksContainer(drinkContainer, index) {
         </div> 
     </div>
     <div class="placeholder"></div>`
+};
+
+function getBasketEmpty(basketContainer) {
+    basketContainer.innerHTML += `     
+    <img src="./assers/images/basket.svg">
+    <h2>Fülle deinen Warenkorb</h2>
+    <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>`
+};
+
+function getNewBasketElements(index, newBasketElements){
+    displayNoneBasket();
+    newBasketElements.innerHTML
+};
+
+function getDelivery(deliveryElement) {
+    deliveryElement.innerHTML += `
+    <button><img src="./assers/images/fahrrad.svg">>Lieferung</button>
+    <button<img src="./assers/images/verpackung.svg">>Abholung</button>`
 }
