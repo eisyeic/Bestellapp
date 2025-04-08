@@ -1,0 +1,116 @@
+.burger-menu {
+    position: absolute;
+    right: 50px;
+
+}
+
+.burger-container {
+    width: 62px;
+    height: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    border-radius: 20px;
+
+    :hover {
+        background-color: white;
+    }
+
+
+}
+
+.line {
+    width: 62px;
+    height: 6px;
+    background-color: white;
+    border-radius: 4px;
+    position: absolute;
+}
+
+.line-one {
+    top: 10px;
+}
+
+.line-two {
+    top: 33px;
+}
+
+.line-three {
+    top: 56px;
+}
+
+.burger-menu input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+
+.burger-menu input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.burger-menu input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#burger-click {
+    display: none;
+}
+
+#burger-click:checked~label .line-two {
+    opacity: 0;
+}
+
+#burger-click:checked~label .line-one {
+    transform: rotate(-45deg);
+    top: 30px;
+    transition: transform 0.8s;
+}
+
+#burger-click:checked~label .line-three {
+    transform: rotate(45deg);
+    top: 30px;
+    transition: transform 0.8s;
+}
+
+.login-box {
+    position: absolute;
+    top: 150px;
+    left: 33.3vh;
+    width: 500px;
+    height: 400px;
+    background-color: rgb(247, 247, 242);
+    border-style: solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.user-container input {
+    width: 300px;
+    height: 50px;
+    border: 0;
+    text-align: center;
+}

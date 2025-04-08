@@ -1,0 +1,18 @@
+.basket-wrapper {
+    border: 2px;
+    border-color: grey;
+    border-left: solid;
+}
+
+.basket {
+    width: 300px;
+    height: 400px;
+    position: sticky;
+    top: 0;
+}
+
+.basket h2 {
+
+    text-align: center;
+
+}

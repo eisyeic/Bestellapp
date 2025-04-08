@@ -1,40 +1,85 @@
-<!-- Symbole zum Kommentieren-->
 <!DOCTYPE html>
 <html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grundstruktur</title>
+    <title>Bestellapp</title>
 
+    <link rel="icon" type="" href="./assers/icon/favicon-32x32.png">
+
+    <script src="./script/db.js"></script>
+    <script src="./script/template.js"></script>
     <script src="./script.js"></script>
-    <!--
-    <script src="./scripts/templates.js"></script>
-    <script src="./scripts/helperFunction.js"></script>
-    <link href="./fonts/pt_sans.css" rel="stylesheet">
+
+    <link href="./styles/fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/assets.css">
-    <link rel="stylesheet" href="./styles/assets.css">-->
+    <link rel="stylesheet" href="./styles/basket.css">
+    <link rel="stylesheet" href="./styles/content.css">
+    <link rel="stylesheet" href="./styles/burger-menu.css">
 
 </head>
 
-<body>
-    <header></header>
-    <main></main>
-        <section></section>
-    <footer></footer>
+<body onload="render()">
+    <header>
+        <img src="./assers/images/Logo.png">
+        <div class="burger-menu">
+            <input type="checkbox" id="burger-click" onclick="burgerClick()">
+            <label for="burger-click">
+                <div class="burger-container">
+                    <div class="line line-one"></div>
+                    <div class="line line-two"></div>
+                    <div class="line line-three"></div>
+                </div>
+            </label>
+            <div id="login-container"></div>
+    </header>
+    <main>
+        <section class="content">
+            <div>
+                <div class="company-image">
+                    <img src="./assers/images/6615.jpg">
+                </div>
+                <div class="title-company">
+                    <h1>Pizza Haus<br>Eisenbarth</h1>
+                    <p>Bewertung (4,8 von 5 Sternen)</p>
+                </div>
+                <div class="company-discription">
+                    <p>Wir bieten Steinofenpizza direkt aus Berlingerode.<br>Handgemacht und liebevoll belegt auch zum
+                        Liefern
+                        für dich zu Hause.</p>
+                </div>
+            </div>
+
+            <div class="selection-menu">
+                <div class="placeholder-befor-button-container">
+                    <div class="placeholder-befor-button"></div>
+                </div>
+                <button class="button-border-foods-none" id="button-foods" onclick="clickFoods()">Speisen</button>
+                <button class="button-border-drinks-none" id="button-drinks" onclick="clickDrinks()">Getränke</button>
+                <div class="placeholder-after-button-container">
+                    <div class="placeholder-after-button"></div>
+                </div>
+            </div>
+
+            <div class="foods-none food-container" id="food-elements"></div>
+            <div class="drinks-none drink-container" id="drink-elements"></div>
+        </section>
+        <section class="basket-wrapper">
+            <div class="basket">
+                <h2>Warenkorb</h2>
+                <div id="basket-render" class="basket-element">
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h3>© Created 2025 by David Eisenbarth</h3>
+    </footer>
 
 </body>
 
 </html>
-
-
-<!-- Befehle für GitHub
-echo "# Grundstruktur" >> README.md                                 •für eine Readme Datei
-git init                                                            •zum Verwenden von Git
-git add .                                                           •alle Dateien in Git einfügen
-git commit -m "first commit"                                        •Kommentar zum Hochladen einfügen
-git branch -M main                                                  •im Bereich des Main einfügen
-git remote add origin https://github.com/eisyeic/Quizapp.git        •an welche Stelle soll es eingefügt werden
-git push -u origin main                                             •git pusht die Daten auf Github
--->
