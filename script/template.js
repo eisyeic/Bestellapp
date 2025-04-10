@@ -1,9 +1,6 @@
-function burgerClick() {
-    let closed = document.getElementById('')
-    let burgerBox = document.getElementById('login-container');
-    if(burgerBox.innerHTML == "") {
-        burgerBox.innerHTML = `
-        <div class="login-box">
+function getburgerClick(burgerBox) {
+        burgerBox.innerHTML += `
+        <div class="login-box login-box-d-none">
                      <h2>Bitte melden Sie sich an!</h2>
                     <div class="user-container">
                         <label for="uname"><b>Benutzername</b></label>
@@ -16,10 +13,6 @@ function burgerClick() {
                         </div>
                     </div>
             </div>`
-    }
-    else {
-        burgerBox.innerHtml = "";
-    }
 };
 
 function getFoodsContainer(foodContainer, index) {
@@ -62,24 +55,38 @@ function getBasketEmpty(basketContainer) {
 function getBasketShowFoodsAndDrinks(iFoodAndDrinks, newBasketElements) {
     newBasketElements.innerHTML += `
     <div class="new-basket-elements">
-        <div><h3>${iFoodAndDrinks + 1}</h3></div>
-        <div><h3><i>${basketNameSale[iFoodAndDrinks]}</i></h3></div>
+        <div><h3>${iFoodAndDrinks + 1}.</h3></div>
+        <div class="h3-basket-Name"><h3><i>${basketNameSale[iFoodAndDrinks]}</i></h3></div>
         <div><h3>${basketPriceSale[iFoodAndDrinks].toFixed(2).replace(".",",")} €</h3></div>
-        <button class="basket-minus">-</button>
+        <button class="basket-minus" onclick="removeElement(${iFoodAndDrinks})">-</button>
     </div>`
 }
 
 function getDelivery(deliveryElement) {
     deliveryElement.innerHTML += `
-    <button type="button" class="button-delivery-bike"><img src="./assers/images/fahrrad.svg">Lieferung</button>
-    <button type="button" class="button-delivery-box"><img src="./assers/images/verpackung.svg">Abholung</button>`
+    <button id="button-bike" onclick="changeDeliveryBike()" type="button" class="button-delivery-bike"><img src="./assers/images/fahrrad.svg">Lieferung</button>
+    <button id="button-box" onclick="changeDeliveryDirekt()" type="button" class="button-delivery-box"><img src="./assers/images/verpackung.svg">Abholung</button>`
 };
 
 function getDeliveryCosts(deliveryCostsElement) {
     deliveryCostsElement.innerHTML += `
-    <div class="placeholder">
+    <div class="placeholder"></div>
     <div class="delivery-costs-box">    
         <div><h3>+ <i>Lieferkosten</i></h3></div>
         <div><h3>4,99 €</h3></div>
     </div>`    
 };
+
+function sumPriceWithoutorWithoutDelivery(sumbasketPriceSale, sumPriceElement) {
+    let minusPercent = sumbasketPriceSale * 0.19;
+    sumPriceElement.innerHTML += `
+    <div class="placeholder"></div>
+    <div class="sum-box">
+        <div>
+            <p>inkl. Mwst. : ${minusPercent.toFixed(2).replace(".",",")} €</p>
+            <h3 class="sum">${sumbasketPriceSale.toFixed(2).replace(".",",")} €</h3>
+        <div class="placeholder placeholder-sum"></div>
+        <div class="placeholder"></div>
+        <div class="button-sum"><a alt="zur Kasse" href="./checkout.html" target="_blank;">zur Kasse</a></div>
+    </div>`
+}

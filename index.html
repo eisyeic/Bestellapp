@@ -22,7 +22,7 @@
 
 </head>
 
-<body onload="render()">
+<body onload="render()" id="body-overflow">
     <header>
         <img src="./assers/images/Logo.png">
         <div class="burger-menu">
@@ -34,7 +34,8 @@
                     <div class="line line-three"></div>
                 </div>
             </label>
-            <div id="login-container"></div>
+        </div>
+        <div id="login-container" class="login-element"></div>
     </header>
     <main>
         <section class="content">
@@ -74,6 +75,7 @@
                 <div id="basket-render" class="basket-element-none basket-element"></div>
                 <div id="add-element" class="add-container"></div>
                 <div id="delivery-costs-element" class="delivery-costs-container"></div>
+                <div id="sum-element" class="sum-container"></div>
             </div>
         </section>
     </main>

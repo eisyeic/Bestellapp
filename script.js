@@ -5,6 +5,7 @@ function render() {
     renderBasket();
     displayNoneFoodAndDrinks();
     displayNoneBasket();
+    getburgerClick()
 }
 
 function renderFoods() {
@@ -73,6 +74,7 @@ function displayNoneBasket() {
 
 function addFood(index) {
     let newBasketElements = document.getElementById('add-element');
+    let deliveryElement = document.getElementById('delivery-element');
     basketNameSale.push(foods[index].name);
     basketPriceSale.push(foods[index].price);
     delivery(newBasketElements);
@@ -80,10 +82,12 @@ function addFood(index) {
     for (let iFoodAndDrinks = 0; iFoodAndDrinks < basketNameSale.length; iFoodAndDrinks++) {
         getBasketShowFoodsAndDrinks(iFoodAndDrinks, newBasketElements);
     }
+    sumElement(deliveryElement);
 }
 
 function addDrinks(index) {
     let newBasketElements = document.getElementById('add-element');
+    let deliveryElement = document.getElementById('delivery-element');
     basketNameSale.push(drinks[index].name);
     basketPriceSale.push(drinks[index].price);
     delivery(newBasketElements);
@@ -91,6 +95,7 @@ function addDrinks(index) {
     for (let iFoodAndDrinks = 0; iFoodAndDrinks < basketNameSale.length; iFoodAndDrinks++) {
         getBasketShowFoodsAndDrinks(iFoodAndDrinks, newBasketElements);
     }
+    sumElement(deliveryElement)
 }
 
 function delivery(newBasketElements) {
@@ -103,3 +108,70 @@ function delivery(newBasketElements) {
     }
 }
 
+function sumElement(deliveryCostsElement) {
+    let sumbasketPriceSale = 0;
+    for (let i = 0; i < basketPriceSale.length; i++) {
+        sumbasketPriceSale += basketPriceSale[i];
+    }
+    let sumPriceElement = document.getElementById('sum-element')
+    sumPriceElement.innerHTML = "";
+    if (deliveryCostsElement.innerHTML == "") {
+        sumPriceWithoutorWithoutDelivery(sumbasketPriceSale, sumPriceElement);
+    }
+    else {
+        sumPriceWithoutorWithoutDelivery(sumbasketPriceSale + 4.99, sumPriceElement);
+    }
+};
+
+function removeElement(iFoodAndDrinks) {
+    let newBasketElements = document.getElementById('add-element');
+    let deliveryElement = document.getElementById('delivery-element');
+    let deliveryCostsElement = document.getElementById('delivery-costs-element')
+    let sumContainer = document.getElementById('sum-element')
+    basketNameSale.splice(iFoodAndDrinks, 1);
+    basketPriceSale.splice(iFoodAndDrinks, 1);
+    newBasketElements.innerHTML = "";
+    for (let icheck = 0; icheck < basketNameSale.length; icheck++) {
+        getBasketShowFoodsAndDrinks(icheck, newBasketElements);
+    }
+    if (basketNameSale.length === 0) {
+        displayNoneBasket();
+        deliveryElement.innerHTML = "";
+        deliveryCostsElement.innerHTML = "";
+        sumContainer.innerHTML = "";
+    }
+    else {
+        sumElement(deliveryCostsElement);
+    }
+};
+
+function changeDeliveryBike() {
+    let deliveryCostsElement = document.getElementById('delivery-costs-element');
+    let buttonBike = document.getElementById('button-bike').classList;
+    let buttonBox = document.getElementById('button-box').classList;
+    if (deliveryCostsElement.innerHTML == "") {
+        getDeliveryCosts(deliveryCostsElement);
+        sumElement(deliveryCostsElement);
+        buttonBox.replace("button-delivery-bike", "button-delivery-box");
+        buttonBike.replace("button-delivery-box", "button-delivery-bike");
+    }
+};
+
+function changeDeliveryDirekt() { 
+    let deliveryCostsElement = document.getElementById('delivery-costs-element');
+    let buttonBike = document.getElementById('button-bike').classList;
+    let buttonBox = document.getElementById('button-box').classList;
+    if (deliveryCostsElement.innerHTML !== "") {
+        deliveryCostsElement.innerHTML = "";
+        sumElement(deliveryCostsElement);
+        buttonBike.replace("button-delivery-bike", "button-delivery-box");
+        buttonBox.replace("button-delivery-box", "button-delivery-bike");
+    }
+}
+
+function burgerClick() {
+    let bodyoverflow = document.getElementById('body-overflow');
+    let burgerBox = document.getElementById('login-container');
+    getburgerClick(burgerBox);
+
+}
