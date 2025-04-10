@@ -71,12 +71,35 @@ function displayNoneBasket() {
 
 }
 
-function addFoodAndDrinks(index) {
-    let newBasketElements = document.getElementById('basket-render');
+function addFood(index) {
+    let newBasketElements = document.getElementById('add-element');
+    basketNameSale.push(foods[index].name);
+    basketPriceSale.push(foods[index].price);
+    delivery(newBasketElements);
+    newBasketElements.innerHTML = "";
+    for (let iFoodAndDrinks = 0; iFoodAndDrinks < basketNameSale.length; iFoodAndDrinks++) {
+        getBasketShowFoodsAndDrinks(iFoodAndDrinks, newBasketElements);
+    }
+}
+
+function addDrinks(index) {
+    let newBasketElements = document.getElementById('add-element');
+    basketNameSale.push(drinks[index].name);
+    basketPriceSale.push(drinks[index].price);
+    delivery(newBasketElements);
+    newBasketElements.innerHTML = "";
+    for (let iFoodAndDrinks = 0; iFoodAndDrinks < basketNameSale.length; iFoodAndDrinks++) {
+        getBasketShowFoodsAndDrinks(iFoodAndDrinks, newBasketElements);
+    }
+}
+
+function delivery(newBasketElements) {
     let deliveryElement = document.getElementById('delivery-element');
+    let deliveryCostsElement = document.getElementById('delivery-costs-element');
     if (newBasketElements.innerHTML == "") {
         displayNoneBasket();
         getDelivery(deliveryElement);
+        getDeliveryCosts(deliveryCostsElement);
     }
-    getNewBasketElements(index, newBasketElements);
 }
+

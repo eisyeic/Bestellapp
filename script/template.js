@@ -24,7 +24,7 @@ function burgerClick() {
 
 function getFoodsContainer(foodContainer, index) {
     foodContainer.innerHTML += `
-    <div class="food-section" onclick="addFoodAndDrinks(${index})">
+    <div class="food-section" onclick="addFood(${index})">
         <div>
             <h3>${foods[index].name}</h3>
             <p><i>${foods[index].ingredients}</i></p>
@@ -39,7 +39,7 @@ function getFoodsContainer(foodContainer, index) {
 
 function getDrinksContainer(drinkContainer, index) {
     drinkContainer.innerHTML += `
-    <div class="drink-section" onclick="addFoodAndDrinks(${index}>
+    <div class="drink-section" onclick="addDrinks(${index})">
         <div>
             <h3>${drinks[index].name}</h3>
             <p><i>${drinks[index].size}</i></p>
@@ -59,13 +59,27 @@ function getBasketEmpty(basketContainer) {
     <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>`
 };
 
-function getNewBasketElements(index, newBasketElements){
-    displayNoneBasket();
-    newBasketElements.innerHTML
-};
+function getBasketShowFoodsAndDrinks(iFoodAndDrinks, newBasketElements) {
+    newBasketElements.innerHTML += `
+    <div class="new-basket-elements">
+        <div><h3>${iFoodAndDrinks + 1}</h3></div>
+        <div><h3><i>${basketNameSale[iFoodAndDrinks]}</i></h3></div>
+        <div><h3>${basketPriceSale[iFoodAndDrinks].toFixed(2).replace(".",",")} €</h3></div>
+        <button class="basket-minus">-</button>
+    </div>`
+}
 
 function getDelivery(deliveryElement) {
     deliveryElement.innerHTML += `
-    <button><img src="./assers/images/fahrrad.svg">>Lieferung</button>
-    <button<img src="./assers/images/verpackung.svg">>Abholung</button>`
-}
+    <button type="button" class="button-delivery-bike"><img src="./assers/images/fahrrad.svg">Lieferung</button>
+    <button type="button" class="button-delivery-box"><img src="./assers/images/verpackung.svg">Abholung</button>`
+};
+
+function getDeliveryCosts(deliveryCostsElement) {
+    deliveryCostsElement.innerHTML += `
+    <div class="placeholder">
+    <div class="delivery-costs-box">    
+        <div><h3>+ <i>Lieferkosten</i></h3></div>
+        <div><h3>4,99 €</h3></div>
+    </div>`    
+};

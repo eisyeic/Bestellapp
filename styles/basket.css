@@ -35,3 +35,54 @@
     display: flex;
     justify-content: center;
 }
+
+.delivery-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.button-delivery-bike {
+    background-color: rgb(254, 229, 203);
+}
+
+.button-delivery-box {
+    background-color: white;
+}
+
+.delivery-container button img {
+    width: 50px;
+    height: 50px;
+}
+
+.delivery-costs-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+}
+
+.delivery-costs-box {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding-right: 33px;
+}
+
+.new-basket-elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.basket-minus {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #ff8000;
+    background-color: rgba(255, 255, 255, 0);
+    border-color:  black;
+}
