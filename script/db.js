@@ -54,26 +54,27 @@ let foods = [
 let drinks = [
     {
         name: "Wasser",
-        size: "0,5 l Falsche",
+        size: "0,5 l Flasche",
         price: 1.00
     },
     {
         name: "Coca Cola",
-        size: "0,5 l Falsche",
+        size: "0,5 l Flasche",
         price: 1.50
     },
     {
         name: "Fanta",
-        size: "0,5 l Falsche",
+        size: "0,5 l Flasche",
         price: 1.50
     },
     {
-        name: "Sprint",
+        name: "Sprite",
+        size: "0,5 l Flasche",
         price: 1.50
     },
     {
         name: "Veltins",
-        size: "0,5 l Falsche",
+        size: "0,5 l Flasche",
         price: 2.50
     },
     {
@@ -102,6 +103,59 @@ let drinks = [
         price: 1.50
     }
 ];
+
+let supplements = [
+    {
+      name: "Knoblauchbrot",
+      ingredients: ["Brot", " Knoblauch", " Butter", " Petersilie"],
+      price: 3.50
+    },
+    {
+      name: "Mozzarella-Sticks",
+      ingredients: ["Mozzarella", " Panade", " Öl"],
+      price: 5.00
+    },
+    {
+      name: "Salat",
+      ingredients: ["Blattsalat", " Tomaten", " Gurke", " Dressing"],
+      price: 4.00
+    },
+    {
+      name: "Chicken Wings",
+      ingredients: ["Hähnchenflügel", " Gewürze", " BBQ-Sauce"],
+      price: 6.50
+    },
+    {
+      name: "Frittierte Zucchini",
+      ingredients: ["Zucchini", " Panade", " Öl"],
+      price: 4.50
+    },
+    {
+      name: "Oliven",
+      ingredients: ["Schwarze Oliven", " Grüne Oliven"],
+      price: 3.00
+    },
+    {
+      name: "Peperoni",
+      ingredients: ["Peperoni", " Gewürze"],
+      price: 2.50
+    },
+    {
+      name: "Caprese-Salat",
+      ingredients: ["Mozzarella", " Tomaten", " Basilikum", " Olivenöl"],
+      price: 5.50
+    },
+    {
+      name: "Tzatziki",
+      ingredients: ["Joghurt", " Gurke", " Knoblauch", " Kräuter"],
+      price: 2.00
+    },
+    {
+      name: "Pasta-Salat",
+      ingredients: ["Pasta", " Gemüse", " Dressing"],
+      price: 4.00
+    }
+  ];
 
 let basketNameSale = [];
 let basketPriceSale = [];

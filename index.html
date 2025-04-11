@@ -19,23 +19,29 @@
     <link rel="stylesheet" href="./styles/basket.css">
     <link rel="stylesheet" href="./styles/content.css">
     <link rel="stylesheet" href="./styles/burger-menu.css">
+    <link rel="stylesheet" href="./styles/mediaQuery.css">
 
 </head>
 
-<body onload="render()" id="body-overflow">
-    <header>
-        <img src="./assers/images/Logo.png">
-        <div class="burger-menu">
-            <input type="checkbox" id="burger-click" onclick="burgerClick()">
-            <label for="burger-click">
-                <div class="burger-container">
-                    <div class="line line-one"></div>
-                    <div class="line line-two"></div>
-                    <div class="line line-three"></div>
-                </div>
-            </label>
-        </div>
+<body onload="render()" id="body-overlay">
+    <div id="login-overlay-click" class="login-overlay login-box-d-none" onclick="burgerClick()">
         <div id="login-container" class="login-element"></div>
+    </div>
+
+    <header>
+        <div>
+            <img src="./assers/images/Logo.png">
+            <div class="burger-menu">
+                <input type="checkbox" id="burger-click" onclick="burgerClick()">
+                <label for="burger-click">
+                    <div class="burger-container">
+                        <div class="line line-one"></div>
+                        <div class="line line-two"></div>
+                        <div class="line line-three"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
     </header>
     <main>
         <section class="content">
@@ -46,6 +52,7 @@
                 <div class="title-company">
                     <h1>Pizza Haus<br>Eisenbarth</h1>
                     <p>Bewertung (4,8 von 5 Sternen)</p>
+                    <img src="./assers/icon/stars.svg"> 
                 </div>
                 <div class="company-discription">
                     <p>Wir bieten Steinofenpizza direkt aus Berlingerode.<br>Handgemacht und liebevoll belegt auch zum
@@ -59,6 +66,7 @@
                     <div class="placeholder-befor-button"></div>
                 </div>
                 <button class="button-border-foods-none" id="button-foods" onclick="clickFoods()">Speisen</button>
+                <button class="button-border-supplements-none" id="button-supplements" onclick="clickSupplements()">Beilagen</button>
                 <button class="button-border-drinks-none" id="button-drinks" onclick="clickDrinks()">Getränke</button>
                 <div class="placeholder-after-button-container">
                     <div class="placeholder-after-button"></div>
@@ -66,6 +74,7 @@
             </div>
 
             <div class="foods-none food-container" id="food-elements"></div>
+            <div class="supplements-none supplements-container" id="supplements-elements"></div>
             <div class="drinks-none drink-container" id="drink-elements"></div>
         </section>
         <section class="basket-wrapper">
@@ -82,7 +91,6 @@
     <footer>
         <h3>© Created 2025 by David Eisenbarth</h3>
     </footer>
-
 </body>
 
 </html>

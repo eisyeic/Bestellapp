@@ -48,10 +48,18 @@
     background-color: rgb(254, 229, 203);
 }
 
-
+.button-delivery-bike:hover {
+    background-color: rgb(254, 229, 203);
+    cursor: pointer;
+}
 
 .button-delivery-box {
     background-color: white;
+}
+
+.button-delivery-box:hover {
+    background-color: rgb(254, 229, 203);
+    cursor: pointer;
 }
 
 .delivery-container button img {
@@ -60,8 +68,6 @@
 }
 
 .delivery-costs-container {
-    padding-left: 20px;
-    padding-right: 20px;
     gap: 20px;
 }
 
@@ -69,7 +75,7 @@
     display: flex;
     justify-content: center;
     gap: 15px;
-    padding-right: 50px;
+    padding-right: 65px;
 }
 
 .new-basket-elements {
@@ -87,6 +93,11 @@
     color: #ff8000;
     background-color: rgba(255, 255, 255, 0);
     border-color: black;
+    cursor: pointer;
+}
+
+.basket-minus:hover {
+    background-color: rgb(255, 230, 204);
 }
 
 .h3-basket-Name {
@@ -98,7 +109,7 @@
 
 .sum {
     text-align: end;
-    padding-right: 54px;
+    padding-right: 63px;
 }
 
 .sum-box {
@@ -132,5 +143,5 @@
 
 .add-container {
     overflow: auto;
-    height: calc(100vh - 500px);
+    height: calc(100vh - 520px);
 }

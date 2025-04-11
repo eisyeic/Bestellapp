@@ -1,0 +1,36 @@
+@media (max-width: 1000px) {
+    .company-discription {
+        text-align: center;
+        padding-right: 50px;
+
+    }
+}
+
+@media (max-width: 850px) {
+    .placeholder-befor-button  {
+       width: 20px;
+
+    }
+}
+
+@media (max-width: 760px) {
+    .selection-menu button {
+       width: 100px;
+       font-size: 20px;
+    }
+    .title-company {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+    }
+}
+
+@media (max-width: 650px) {
+    .basket-wrapper {
+       display: none;
+    }
+    main {
+        max-width: 100vh;
+    }
+}

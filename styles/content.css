@@ -18,6 +18,7 @@
     border-color:  black;
     border-right: none;
     border-top: none;
+    cursor: pointer;
 }
 
 .foods-none{
@@ -109,4 +110,38 @@
 
 .button-border-drinks-none {
     border-bottom: none;
+}
+
+.button-border-supplements-none {
+    border-bottom: none;
+}
+
+.supplements-section {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+}
+
+.supplements-section:hover {
+    background-color:  rgb(255, 230, 204);
+}
+
+.supplements-section button {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #ff8000;
+    background-color: rgba(255, 255, 255, 0);
+    border-color: black;
+    border-right: none;
+    border-top: none;
+}
+
+.supplements-none{
+    display: none;
+}
+
+.supplements-container h2 {
+    padding-left: 50px;
+    color: #ff8000;
 }

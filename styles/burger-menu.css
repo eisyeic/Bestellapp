@@ -1,7 +1,7 @@
 .burger-menu {
     position: absolute;
     right: 50px;
-
+    top: 15px;
 }
 
 .burger-container {
@@ -11,12 +11,11 @@
     padding-right: 10px;
     position: relative;
     border-radius: 20px;
+    cursor: pointer;
+}
 
-    :hover {
-        background-color: white;
-    }
-
-
+.burger-container:hover {
+    background-color: rgb(255, 230, 204, 0.2);
 }
 
 .line {
@@ -97,13 +96,26 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 98;
 
 }
 
+.login-box button {
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    color: #ff8000;
+    background-color: rgba(255, 255, 255, 0);
+    border-color: black;
+}
+
 .login-element {
-    position: absolute;
-    left: 50vh;
+    position: relative;
+    left: 25vh;
     top: 25vh;
+    width: 500px;
+    height: 500px;
+    z-index: 99;
 }
 .login-box-d-none{
     display: none;
