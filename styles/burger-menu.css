@@ -96,7 +96,7 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 98;
+    z-index: 3;
 
 }
 
@@ -110,12 +110,11 @@ textarea {
 }
 
 .login-element {
-    position: relative;
-    left: 25vh;
-    top: 25vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 500px;
-    height: 500px;
-    z-index: 99;
 }
 .login-box-d-none{
     display: none;

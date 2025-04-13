@@ -1,4 +1,4 @@
-function getburgerClick() {
+function getBurgerClick() {
     let burgerMenuBox = document.getElementById('login-container');
     burgerMenuBox.innerHTML += `
         <div class="login-box">
@@ -22,7 +22,7 @@ function getFoodsContainer(foodContainer, index) {
         <div>
             <h3>${foods[index].name}</h3>
             <p><i>${foods[index].ingredients}</i></p>
-            <p>${foods[index].price.toFixed(2).replace(".",",")}€</p>
+            <p>${foods[index].price.toFixed(2).replace(".", ",")}€</p>
         </div>
         <div>
             <button>+</button>
@@ -37,7 +37,7 @@ function getSupplementsContainer(supplementsContainer, index) {
         <div>
             <h3>${supplements[index].name}</h3>
             <p><i>${supplements[index].ingredients}</i></p>
-            <p>${supplements[index].price.toFixed(2).replace(".",",")}€</p>
+            <p>${supplements[index].price.toFixed(2).replace(".", ",")}€</p>
         </div>
         <div>
             <button>+</button>
@@ -52,7 +52,7 @@ function getDrinksContainer(drinkContainer, index) {
         <div>
             <h3>${drinks[index].name}</h3>
             <p><i>${drinks[index].size}</i></p>
-            <p>${drinks[index].price.toFixed(2).replace(".",",")}€</p>
+            <p>${drinks[index].price.toFixed(2).replace(".", ",")}€</p>
         </div>
         <div>
             <button>+</button>
@@ -73,7 +73,7 @@ function getBasketShowFoodsAndDrinks(iFoodDrinksSupplements, newBasketElements) 
     <div class="new-basket-elements">
         <div><h3>${iFoodDrinksSupplements + 1}.</h3></div>
         <div class="h3-basket-Name"><h3><i>${basketNameSale[iFoodDrinksSupplements]}</i></h3></div>
-        <div><h3>${basketPriceSale[iFoodDrinksSupplements].toFixed(2).replace(".",",")} €</h3></div>
+        <div><h3>${basketPriceSale[iFoodDrinksSupplements].toFixed(2).replace(".", ",")} €</h3></div>
         <button class="basket-minus" onclick="removeElement(${iFoodDrinksSupplements})">-</button>
     </div>`
 }
@@ -90,7 +90,7 @@ function getDeliveryCosts(deliveryCostsElement) {
     <div class="delivery-costs-box">    
         <div><h3>+ <i>Lieferkosten</i></h3></div>
         <div><h3>4,99 €</h3></div>
-    </div>`    
+    </div>`
 };
 
 function sumPriceWithoutorWithoutDelivery(sumbasketPriceSale, sumPriceElement) {
@@ -99,8 +99,8 @@ function sumPriceWithoutorWithoutDelivery(sumbasketPriceSale, sumPriceElement) {
     <div class="placeholder"></div>
     <div class="sum-box">
         <div>
-            <p>inkl. Mwst. : ${minusPercent.toFixed(2).replace(".",",")} €</p>
-            <h3 class="sum">${sumbasketPriceSale.toFixed(2).replace(".",",")} €</h3>
+            <p>inkl. Mwst. : ${minusPercent.toFixed(2).replace(".", ",")} €</p>
+            <h3 class="sum">${sumbasketPriceSale.toFixed(2).replace(".", ",")} €</h3>
         <div class="placeholder placeholder-sum"></div>
         <div class="placeholder"></div>
         <div class="button-sum"><a alt="zur Kasse" onclick="sendTestShopping()" target="_blank;">zur Kasse</a></div>
@@ -110,11 +110,33 @@ function sumPriceWithoutorWithoutDelivery(sumbasketPriceSale, sumPriceElement) {
 function getTestShopping() {
     let testShopping = document.getElementById('login-container');
     testShopping.innerHTML += `
-        <div class="login-box">
+        <div class="login-box finished-shopping">
             <div>
                 <h2>Vielen Dank für Ihre Bestellung!</h2>
-                <p>Dies war eine Testbestellung hat keinen Einkauf ausgelöst!</p>
+                <p>Dies war eine Testbestellung<br>und hat keinen Einkauf ausgelöst!</p>
                 <button onclick="burgerClick()">Fenster schließen</button>  
             </div>
         </div>`
 };
+
+function getSmallBasket(basketSmallBox) {
+    basketSmallBox.innerHTML = "";
+    basketSmallBox.innerHTML += `
+    <div class="small-basket-container">
+        <img src="./assers/images/basket.svg">
+        <h2>Fülle deinen Warenkorb</h2>
+        <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>
+    </div>`
+}
+
+function getSmallBasketRender(addSmallBasket) {
+    addSmallBasket.innerHTML += `
+    <div id="delete-basket" class="basket">
+                <h2>Warenkorb</h2>
+                <div id="delivery-element" class="delivery-container"></div>
+                <div id="basket-render" class="basket-element-none basket-element"></div>
+                <div id="add-element" class="add-container"></div>
+                <div id="delivery-costs-element" class="delivery-costs-container"></div>
+                <div id="sum-element" class="sum-container"></div>
+            </div>`
+}
