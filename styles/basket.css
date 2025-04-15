@@ -15,9 +15,7 @@
 }
 
 .basket h2 {
-
     text-align: center;
-
 }
 
 .basket-element {
@@ -78,12 +76,12 @@
     display: flex;
     justify-content: center;
     gap: 15px;
-    padding-right: 65px;
+    padding-right: 58px;
 }
 
 .new-basket-elements {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
@@ -97,22 +95,24 @@
     background-color: rgba(255, 255, 255, 0);
     border-color: black;
     cursor: pointer;
+    margin-left: 5px;
 }
 
 .basket-minus:hover {
     background-color: rgb(255, 230, 204);
 }
 
-.h3-basket-Name {
-    text-align: center;
+.h3-basket-name {
+    text-align: left;
     width: 100px;
     line-break: anywhere;
     font-size: x-small;
+    padding-right: 10px;
 }
 
 .sum {
     text-align: end;
-    padding-right: 63px;
+    padding-right: 60px;
 }
 
 .sum-box {
@@ -128,6 +128,7 @@
     padding-top: 20px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .button-sum a {
@@ -168,6 +169,7 @@
 .basket-small-icon img:hover {
     filter: brightness(0);
 }
+
 .basket-small {
     display: flex;
     flex-direction: column;
@@ -192,6 +194,7 @@
     top: 0px;
     right: 30px;
 }
+
 .finished-shopping {
     text-align: center;
 }

@@ -18,14 +18,14 @@ function getBurgerClick() {
 
 function getFoodsContainer(foodContainer, index) {
     foodContainer.innerHTML += `
-    <div class="food-section" onclick="addFood(${index})">
+    <div class="food-section">
         <div>
             <h3>${foods[index].name}</h3>
             <p><i>${foods[index].ingredients}</i></p>
             <p>${foods[index].price.toFixed(2).replace(".", ",")}€</p>
         </div>
         <div>
-            <button>+</button>
+            <button onclick="addFood(${index})">+</button>
         </div> 
     </div>
     <div class="placeholder"></div>`
@@ -33,14 +33,14 @@ function getFoodsContainer(foodContainer, index) {
 
 function getSupplementsContainer(supplementsContainer, index) {
     supplementsContainer.innerHTML += `
-    <div class="supplements-section" onclick="addSupplements(${index})">
+    <div class="supplements-section">
         <div>
             <h3>${supplements[index].name}</h3>
             <p><i>${supplements[index].ingredients}</i></p>
             <p>${supplements[index].price.toFixed(2).replace(".", ",")}€</p>
         </div>
         <div>
-            <button>+</button>
+            <button onclick="addSupplements(${index})">+</button>
         </div> 
     </div>
     <div class="placeholder"></div>`
@@ -48,14 +48,14 @@ function getSupplementsContainer(supplementsContainer, index) {
 
 function getDrinksContainer(drinkContainer, index) {
     drinkContainer.innerHTML += `
-    <div class="drink-section" onclick="addDrinks(${index})">
+    <div class="drink-section">
         <div>
             <h3>${drinks[index].name}</h3>
             <p><i>${drinks[index].size}</i></p>
             <p>${drinks[index].price.toFixed(2).replace(".", ",")}€</p>
         </div>
         <div>
-            <button>+</button>
+            <button onclick="addDrinks(${index})">+</button>
         </div> 
     </div>
     <div class="placeholder"></div>`
@@ -68,13 +68,12 @@ function getBasketEmpty(basketContainer) {
     <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>`
 };
 
-function getBasketShowFoodsAndDrinks(iFoodDrinksSupplements, newBasketElements) {
+function getBasketShowFoodsAndDrinks(index, newBasketElements) {
     newBasketElements.innerHTML += `
     <div class="new-basket-elements">
-        <div><h3>${iFoodDrinksSupplements + 1}.</h3></div>
-        <div class="h3-basket-Name"><h3><i>${basketNameSale[iFoodDrinksSupplements]}</i></h3></div>
-        <div><h3>${basketPriceSale[iFoodDrinksSupplements].toFixed(2).replace(".", ",")} €</h3></div>
-        <button class="basket-minus" onclick="removeElement(${iFoodDrinksSupplements})">-</button>
+        <div class="h3-basket-name"><h3><i>${basketArray[index].name}</i></h3></div>
+        <div><h3>${basketArray[index].quantity} x ${basketArray[index].price.toFixed(2).replace(".", ",")} €</h3></div>
+        <button class="basket-minus" onclick="removeElement(${index})">-</button>
     </div>`
 }
 
@@ -105,7 +104,7 @@ function sumPriceWithoutorWithoutDelivery(sumbasketPriceSale, sumPriceElement) {
         <div class="placeholder"></div>
         <div class="button-sum"><a alt="zur Kasse" onclick="sendTestShopping()" target="_blank;">zur Kasse</a></div>
     </div>`
-}
+};
 
 function getTestShopping() {
     let testShopping = document.getElementById('login-container');
@@ -127,7 +126,7 @@ function getSmallBasket(basketSmallBox) {
         <h2>Fülle deinen Warenkorb</h2>
         <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>
     </div>`
-}
+};
 
 function getSmallBasketRender(addSmallBasket) {
     addSmallBasket.innerHTML += `
@@ -139,4 +138,4 @@ function getSmallBasketRender(addSmallBasket) {
                 <div id="delivery-costs-element" class="delivery-costs-container"></div>
                 <div id="sum-element" class="sum-container"></div>
             </div>`
-}
+};

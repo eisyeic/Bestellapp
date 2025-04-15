@@ -4,30 +4,30 @@ function render() {
     renderDrinks();
     renderBasket();
     displayNoneFoodDrinksAndSupplement();
-    getBurgerClick()
+    getBurgerClick();
     displayNoneBasket();
-}
+};
 
 function renderFoods() {
     let foodContainer = document.getElementById('food-elements');
     for (let index = 0; index < foods.length; index++) {
         getFoodsContainer(foodContainer, index);
-    }
-}
+    };
+};
 
 function renderSupplements() {
     let supplementsContainer = document.getElementById('supplements-elements');
     for (let index = 0; index < supplements.length; index++) {
         getSupplementsContainer(supplementsContainer, index);
-    }
-}
+    };
+};
 
 function renderDrinks() {
     let drinkContainer = document.getElementById('drink-elements');
     for (let index = 0; index < drinks.length; index++) {
         getDrinksContainer(drinkContainer, index);
-    }
-}
+    };
+};
 
 function renderSmallBasket() {
     let basketContainer = document.getElementById('small-basket-check');
@@ -36,9 +36,8 @@ function renderSmallBasket() {
     }
     else {
         getBasketEmpty(basketContainer);
-    }
-}
-
+    };
+};
 
 function renderBasket() {
     let basketContainer = document.getElementById('basket-render');
@@ -47,8 +46,8 @@ function renderBasket() {
     }
     else {
         getBasketEmpty(basketContainer);
-    }
-}
+    };
+};
 
 function displayNoneFoodDrinksAndSupplement() {
     let foodsNone = document.getElementById('food-elements');
@@ -57,96 +56,105 @@ function displayNoneFoodDrinksAndSupplement() {
     foodsNone.classList.toggle('foods-none');
     supplementsButton.classList.toggle('button-border-supplements-none');
     drinksButton.classList.toggle('button-border-drinks-none');
-}
+};
 
-function changeTabButton() {
+function addClassNone() {
     let drinksNone = document.getElementById('drink-elements');
     let foodsNone = document.getElementById('food-elements');
     let supplementsNone = document.getElementById('supplements-elements');
-    let drinksButton = document.getElementById('button-drinks');
-    let foodsButton = document.getElementById('button-foods');
-    let supplementsButton = document.getElementById('button-supplements');
-
     drinksNone.classList.add('drinks-none');
     foodsNone.classList.add('foods-none');
     supplementsNone.classList.add('supplements-none');
+}
+
+function removeClassNone() {
+    let drinksButton = document.getElementById('button-drinks');
+    let foodsButton = document.getElementById('button-foods');
+    let supplementsButton = document.getElementById('button-supplements');
 
     drinksButton.classList.remove('button-border-drinks-none');
     foodsButton.classList.remove('button-border-foods-none');
     supplementsButton.classList.remove('button-border-supplements-none');
 }
 
+function changeTabButton() {
+    addClassNone();
+    removeClassNone()
+};
+
 function clickDrinks() {
-    changeTabButton()
+    changeTabButton();
     let drinksNone = document.getElementById('drink-elements');
     let drinksButton = document.getElementById('button-drinks');
     drinksNone.classList.remove('drinks-none');
     drinksButton.classList.add('button-border-drinks-none');
-}
+};
 
 function clickFoods() {
-    changeTabButton()
+    changeTabButton();
     let foodsNone = document.getElementById('food-elements');
     let foodsButton = document.getElementById('button-foods');
     foodsNone.classList.remove('foods-none');
     foodsButton.classList.add('button-border-foods-none');
-}
+};
 
 function clickSupplements() {
-    changeTabButton()
+    changeTabButton();
     let supplementsNone = document.getElementById('supplements-elements');
     let supplementsButton = document.getElementById('button-supplements');
     supplementsNone.classList.remove('supplements-none');
     supplementsButton.classList.add('button-border-supplements-none');
-}
+};
 
 function displayNoneBasket() {
     let basketPlaceholder = document.getElementById('basket-render');
     basketPlaceholder.classList.toggle('basket-element-none');
-}
+};
 
 function addFood(index) {
-    let newBasketElements = document.getElementById('add-element');
-    let deliveryElement = document.getElementById('delivery-element');
-    basketNameSale.push(foods[index].name);
-    basketPriceSale.push(foods[index].price);
-    delivery(newBasketElements);
-    newBasketElements.innerHTML = "";
-    for (let iFoodDrinksSupplements = 0; iFoodDrinksSupplements < basketNameSale.length; iFoodDrinksSupplements++) {
-        getBasketShowFoodsAndDrinks(iFoodDrinksSupplements, newBasketElements);
-    }
-    sumElement(deliveryElement);
-}
+    addItemToBasket(foods[index].name, foods[index].price);
+};
 
 function addDrinks(index) {
-    let newBasketElements = document.getElementById('add-element');
-    let deliveryElement = document.getElementById('delivery-element');
-    basketNameSale.push(drinks[index].name);
-    basketPriceSale.push(drinks[index].price);
-    delivery(newBasketElements);
-    newBasketElements.innerHTML = "";
-    for (let iFoodDrinksSupplements = 0; iFoodDrinksSupplements < basketNameSale.length; iFoodDrinksSupplements++) {
-        getBasketShowFoodsAndDrinks(iFoodDrinksSupplements, newBasketElements);
-    }
-    sumElement(deliveryElement);
-    if (window.matchMedia("(min-width: 650px)").matches) {
-        document.getElementById("basket-render").innerHTML = "";}
-}
+    addItemToBasket(drinks[index].name, drinks[index].price);
+};
 
 function addSupplements(index) {
+    addItemToBasket(supplements[index].name, supplements[index].price);
+};
+function addItemToBasket(name, price) {
     let newBasketElements = document.getElementById('add-element');
     let deliveryElement = document.getElementById('delivery-element');
-    basketNameSale.push(supplements[index].name);
-    basketPriceSale.push(supplements[index].price);
-    delivery(newBasketElements);
-    newBasketElements.innerHTML = "";
-    for (let iFoodDrinksSupplements = 0; iFoodDrinksSupplements < basketNameSale.length; iFoodDrinksSupplements++) {
-        getBasketShowFoodsAndDrinks(iFoodDrinksSupplements, newBasketElements);
+
+    let existingItem = null;
+    for (let i = 0; i < basketArray.length; i++) {
+        if (basketArray[i].name === name) {
+            existingItem = basketArray[i];
+            break;
+        }
+    };
+
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        basketArray.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
     }
-    sumElement(deliveryElement)
-    if (window.matchMedia("(min-width: 650px)").matches) {
-        document.getElementById("basket-render").innerHTML = "";}
-}
+    delivery(newBasketElements);
+    renderBasketItems(newBasketElements);
+    sumElement(deliveryElement);
+};
+
+function renderBasketItems(newBasketElements) {
+    newBasketElements.innerHTML = "";
+    for (let i = 0; i < basketArray.length; i++) {
+        getBasketShowFoodsAndDrinks(i, newBasketElements);
+    }
+};
+
 
 function delivery(newBasketElements) {
     let deliveryElement = document.getElementById('delivery-element');
@@ -155,37 +163,41 @@ function delivery(newBasketElements) {
         displayNoneBasket();
         getDelivery(deliveryElement);
         getDeliveryCosts(deliveryCostsElement);
-    }
-}
+    };
+};
 
 function sumElement(deliveryCostsElement) {
     let sumbasketPriceSale = 0;
-    for (let i = 0; i < basketPriceSale.length; i++) {
-        sumbasketPriceSale += basketPriceSale[i];
+    for (let i = 0; i < basketArray.length; i++) {
+        sumbasketPriceSale += basketArray[i].price * basketArray[i].quantity;
     }
-    let sumPriceElement = document.getElementById('sum-element')
+
+    let sumPriceElement = document.getElementById('sum-element');
     sumPriceElement.innerHTML = "";
     if (deliveryCostsElement.innerHTML == "") {
         sumPriceWithoutorWithoutDelivery(sumbasketPriceSale, sumPriceElement);
-    }
-    else {
+    } else {
         sumPriceWithoutorWithoutDelivery(sumbasketPriceSale + 4.99, sumPriceElement);
     }
 };
 
-function removeElement(iFoodAndDrinks) {
+function removeElement(index) {
     let newBasketElements = document.getElementById('add-element');
     let deliveryElement = document.getElementById('delivery-element');
-    let deliveryCostsElement = document.getElementById('delivery-costs-element')
-    let sumContainer = document.getElementById('sum-element')
-    deleteDeliveryElements(basketNameSale, basketPriceSale, newBasketElements, iFoodAndDrinks);
-    for (let icheck = 0; icheck < basketNameSale.length; icheck++) {
-        getBasketShowFoodsAndDrinks(icheck, newBasketElements);
+    let deliveryCostsElement = document.getElementById('delivery-costs-element');
+    let sumContainer = document.getElementById('sum-element');
+
+    if (basketArray.length > 0 && basketArray[index].quantity > 1) {
+        basketArray[index].quantity--;
+    } else {
+        basketArray.splice(index, 1);
     }
-    if (basketNameSale.length === 0) {
+
+    renderBasketItems(newBasketElements);
+
+    if (basketArray.length === 0) {
         deleteDeliverySale(deliveryElement, deliveryCostsElement, sumContainer);
-    }
-    else {
+    } else {
         sumElement(deliveryCostsElement);
     }
 };
@@ -194,14 +206,14 @@ function deleteDeliveryElements(basketNameSale, basketPriceSale, newBasketElemen
     basketNameSale.splice(iFoodAndDrinks, 1);
     basketPriceSale.splice(iFoodAndDrinks, 1);
     newBasketElements.innerHTML = "";
-}
+};
 
 function deleteDeliverySale(deliveryElement, deliveryCostsElement, sumContainer) {
     displayNoneBasket();
     deliveryElement.innerHTML = "";
     deliveryCostsElement.innerHTML = "";
     sumContainer.innerHTML = "";
-}
+};
 
 function changeDeliveryBike() {
     let deliveryCostsElement = document.getElementById('delivery-costs-element');
@@ -225,31 +237,31 @@ function changeDeliveryDirekt() {
         buttonBike.replace("button-delivery-bike", "button-delivery-box");
         buttonBox.replace("button-delivery-box", "button-delivery-bike");
     }
-}
+};
 
 function burgerClick() {
     let burgerMenuBox = document.getElementById('login-overlay-click');
-    let overlayBody = document.getElementById('body-overlay');
     let inputToggle = document.getElementById('burger-click');
-    overlayBody.classList.toggle('body-overlay');
+    overlayBodyToggle()
 
     if (burgerMenuBox.classList.contains('login-box-d-none')) {
         burgerMenuBox.classList.remove('login-box-d-none');
+        scrollToTop()
     } else {
         burgerMenuBox.classList.add('login-box-d-none');
         inputToggle.checked = !inputToggle.checked;
     }
 
-}
+};
 
 function stopProp(event) {
     event.stopPropagation();
-}
+};
 
-function closedClick(burgerMenuBox, overlayBody) {
-    overlayBody.toggle('body-overlay');
+function closedClick(burgerMenuBox) {
+    overlayBodyToggle()
     burgerMenuBox.toggle('login-box-d-none');
-}
+};
 
 function loginClick() {
     let userName = document.getElementById('input-user').value;
@@ -259,26 +271,55 @@ function loginClick() {
         return;
     }
     else {
-        alert('Sie sind jetzt nicht angemeldet! Dies ist nur eine Demo!')
-        burgerClick()
-    }
+        alert('Sie sind jetzt nicht angemeldet! Dies ist nur eine Demo!');
+        burgerClick();
+    };
+};
 
+function newBasketElements() {
+    let newBasketElements = document.getElementById('add-element');
+    newBasketElements.innerHTML = "";
+
+}
+
+function containerDnone() {
+    let containerDnone = document.getElementById('login-overlay-click');
+    containerDnone.classList.toggle('login-box-d-none');
+}
+
+function overlayBodyToggle() {
+    let overlayBody = document.getElementById('body-overlay');
+    overlayBody.classList.toggle('body-overlay');
+}
+
+function loginContainerdelete() {
+    let loginContainer = document.getElementById('login-container');
+    loginContainer.innerHTML = "";
 }
 
 function sendTestShopping() {
-    let newBasketElements = document.getElementById('add-element');
-    let containerDnone = document.getElementById('login-overlay-click');
-    let loginContainer = document.getElementById('login-container');
-    basketNameSale = [];
-    basketPriceSale = [];
-    newBasketElements.innerHTML = "";
-    loginContainer.innerHTML = "";
-    containerDnone.classList.toggle('login-box-d-none');
+    let inputToggle = document.getElementById('burger-click');
+    basketArray = [];
+    newBasketElements()
+    loginContainerdelete()
+    containerDnone()
     removeElement();
     getTestShopping();
-}
+    overlayBodyToggle()
+    scrollToTop()
+    inputToggle.checked = !inputToggle.checked;
+};
 
 function basketSmallActive() {
     let basketSmall = document.getElementById('basket-activ');
-    basketSmall.classList.toggle('basket-wrapper-none')
+    basketSmall.classList.toggle('basket-wrapper-none');
+    let toggleBody = document.getElementById('body-overlay');
+    toggleBody.classList.toggle('body-overlay');
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }

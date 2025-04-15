@@ -2,14 +2,12 @@
     .company-discription {
         text-align: center;
         padding-right: 50px;
-
     }
 }
 
 @media (max-width: 850px) {
     .placeholder-befor-button {
         width: 20px;
-
     }
 }
 
@@ -23,11 +21,10 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-
     }
 }
 
-@media (min-width: 650px) {
+@media (min-width: 700px) {
     .basket-small-icon-none {
         display: none;
         position: absolute;
@@ -35,27 +32,39 @@
         background-color: white;
         width: 100%;
     }
-    .closed-basket{
+
+    .closed-basket {
         display: none;
     }
+
     .basket-small-icon {
         display: none;
     }
+
+    .delivery-costs-box {
+        padding-right: 30px;
+    }
+
+    .sum {
+        padding-right: 45px;
+    }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
     .basket-wrapper {
         background-color: white;
         position: absolute;
         top: 0;
-        left: 0;
+        left: 0px;
         width: 100%;
         display: flex;
         justify-content: center;
     }
+
     .basket-wrapper-none {
         display: none;
     }
+
     .content {
         width: 100vh;
     }
@@ -65,20 +74,58 @@
     }
 
     .add-container {
-        height: auto;
+        height: 36vh;
+        overflow: scroll;
     }
+
     .food-section {
         cursor: auto;
     }
+
     .burger-container {
         cursor: auto;
     }
+
     .burger-menu input[type=submit] {
         cursor: auto;
     }
+
+    .delivery-container button {
+        cursor: auto;
+    }
+
+    .selection-menu button {
+        cursor: auto;
+    }
+
     .login-element {
         width: auto;
     }
+    
+    .basket-minus {
+        cursor: auto;
+    }
+
+    .food-section button {
+        cursor: auto;
+    }
+
+    .drink-section button {
+        cursor: auto;
+    }
+
+    .button-sum {
+        cursor: auto;
+    }
+
+    .button-delivery-box:hover {
+        cursor: auto;
+    }
+
+    .button-delivery-bike:hover {
+        cursor: auto;
+    }
+
     .login-box {
         width: 290px;
         text-align: center;
@@ -86,11 +133,17 @@
         margin-left: 20px;
         margin-right: 20px;
     }
-    .user-container button{
+
+    .user-container button {
         width: 280px;
     }
-    .user-container input{
+
+    .user-container input {
         width: 280px;
+    }
+
+    .title-company p {
+        margin: 0;
     }
 }
 

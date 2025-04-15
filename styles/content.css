@@ -5,8 +5,9 @@
     cursor: pointer;
 }
 
-.food-section:hover {
-    background-color:  rgb(255, 230, 204);
+
+.food-section button:hover {
+    background-color: rgb(255, 230, 204);
 }
 
 
@@ -16,12 +17,13 @@
     font-size: 30px;
     color: #ff8000;
     background-color: rgba(255, 255, 255, 0);
-    border-color:  black;
+    border-color: black;
     border-right: none;
     border-top: none;
+    cursor: pointer;
 }
 
-.foods-none{
+.foods-none {
     display: none;
 }
 
@@ -44,13 +46,13 @@
 .placeholder-befor-button {
     height: 2px;
     width: 50px;
-    background-color:  black;
+    background-color: black;
 }
 
 .placeholder-after-button {
     height: 2px;
     width: 100%;
-    background-color:  black;
+    background-color: black;
 }
 
 .placeholder {
@@ -71,8 +73,14 @@
     width: 140px;
     background-color: rgba(255, 255, 255, 0);
     border-radius: 20px 20px 0 0;
-    border-color: black
+    border-color: black;
+    cursor: pointer;
 }
+
+.selection-menu button:hover {
+    background-color: rgb(255, 230, 204);
+}
+
 
 .drink-section {
     display: flex;
@@ -80,8 +88,8 @@
     padding-left: 50px;
 }
 
-.drink-section:hover {
-    background-color:  rgb(255, 230, 204);
+.drink-section button:hover {
+    background-color: rgb(255, 230, 204);
 }
 
 .drink-section button {
@@ -93,9 +101,10 @@
     border-color: black;
     border-right: none;
     border-top: none;
+    cursor: pointer;
 }
 
-.drinks-none{
+.drinks-none {
     display: none;
 }
 
@@ -122,8 +131,8 @@
     padding-left: 50px;
 }
 
-.supplements-section:hover {
-    background-color:  rgb(255, 230, 204);
+.supplements-section button:hover {
+    background-color: rgb(255, 230, 204);
 }
 
 .supplements-section button {
@@ -137,7 +146,7 @@
     border-top: none;
 }
 
-.supplements-none{
+.supplements-none {
     display: none;
 }
 
