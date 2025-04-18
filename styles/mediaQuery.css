@@ -78,54 +78,6 @@
         overflow: scroll;
     }
 
-    .food-section {
-        cursor: auto;
-    }
-
-    .burger-container {
-        cursor: auto;
-    }
-
-    .burger-menu input[type=submit] {
-        cursor: auto;
-    }
-
-    .delivery-container button {
-        cursor: auto;
-    }
-
-    .selection-menu button {
-        cursor: auto;
-    }
-
-    .login-element {
-        width: auto;
-    }
-    
-    .basket-minus {
-        cursor: auto;
-    }
-
-    .food-section button {
-        cursor: auto;
-    }
-
-    .drink-section button {
-        cursor: auto;
-    }
-
-    .button-sum {
-        cursor: auto;
-    }
-
-    .button-delivery-box:hover {
-        cursor: auto;
-    }
-
-    .button-delivery-bike:hover {
-        cursor: auto;
-    }
-
     .login-box {
         width: 290px;
         text-align: center;
